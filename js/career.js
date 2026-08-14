@@ -1,0 +1,65 @@
+const careerForm = document.getElementById("careerForm");
+careerForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const submitBtn = careerForm.querySelector("button[type='submit']");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
+    const formData = new FormData(careerForm);
+    try {
+        const response = await fetch("/api/career", {
+            method: "POST",
+            body: formData
+        });
+        const data = await response.json();
+        if (data.success) {
+            Swal.fire({
+                icon: "success",
+                title: "Application Submitted!",
+                text: "Your application has been sent successfully.",
+                confirmButtonText: "Send on WhatsApp",
+
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                allowEnterKey: true,
+
+                showCancelButton: false,
+
+                didOpen: () => {
+                    const popup = Swal.getPopup();
+                    const closeBtn = popup.querySelector(".swal2-close");
+                    if (closeBtn) closeBtn.style.display = "none";
+                }
+            }).then(() => {
+                const msg =
+                    `*New Tutor Application*
+                    👤 Name: ${formData.get("fullName")}
+                    📧 Email: ${formData.get("email")}
+                    📞 Phone: ${formData.get("phone")}
+                    🎓 Qualification: ${formData.get("qualification")}
+                    📚 Subjects: ${formData.get("subjects")}
+                    `;
+                window.open(
+                    `https://wa.me/919962588807?text=${encodeURIComponent(msg)}`,
+                    "_blank"
+                );
+                careerForm.reset();
+            });
+        } else {
+            Swal.fire(
+                "Error",
+                data.message,
+                "error"
+            );
+        }
+    } catch (err) {
+        console.error(err);
+        Swal.fire(
+            "Error",
+            "Something went wrong.",
+            "error"
+        );
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Application";
+    }
+});
