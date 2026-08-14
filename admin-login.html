@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Easy Learning</title>
+  <meta name="description" content="Admin login page for Easy Learning frontend portal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&family=Dancing+Script:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Great+Vibes&family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Italianno&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Parisienne&family=Petit+Formal+Script&family=Pinyon+Script&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Qwigley&family=Roboto+Slab:wght@100..900&family=Sora:wght@100..800&family=WindSong:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="login-body admin-login-body">
+  <main class="login-page admin-login-page">
+    <section class="login-shell admin-login-shell reveal">
+      <a href="index.html" class="login-brand" aria-label="Easy Learning home">
+        <img src="assets/images/logo-Navbar.png" alt="Eazylearning Premium Tutoring">
+      </a>
+
+      <div class="login-card admin-login-card">
+        <span class="eyebrow">Admin Portal</span>
+        <h1>Admin Login.</h1>
+        <p>Login to manage student enrollments and demo requests.</p>
+
+        <form class="portal-login-form" id="adminLoginForm">
+          <label>Admin Email <small>*</small><input type="email" name="email" id="adminEmail" placeholder="admin@example.com" required></label>
+          <label>Password <small>*</small><input type="password" id="adminPassword" name="password" placeholder="Enter password" required></label>
+          <button class="btn btn-gold" type="submit">Open Dashboard</button>
+        </form>
+
+        <div class="login-footnote">
+          <a href="index.html">Home</a>
+        </div>
+      </div>
+
+      <div class="login-side-panel admin-side-panel">
+        <h2>Admin controls.</h2>
+        <ul>
+          <li>Student Records</li>
+          <li>Manage Enrollments</li>
+          <li>Enrollment Details</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
